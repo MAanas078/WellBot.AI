@@ -71,4 +71,4 @@ npm start
 
 ---
 
-WellBot.AI is made with 💖 by Aanas and Zodrick at the HackIndia Hackathon (36 hour) Spark 8, LIET, Greater Noida and preseneted it in its finals on 10th May 2025.
+WellBot.AI is made with 💖 by Aanas and Zodrick.
