@@ -5,10 +5,7 @@
 WellBot.AI is an intelligent web application designed to diagnose health issues based on user descriptions of pain and other symptoms. With advanced AI models and a 3D human body integration, users can interact with specific areas of the body to pinpoint their symptoms and get tailored suggestions for possible health concerns.
 
 Watch the demo:
-
-
-
-
+![Demo Video](./model.gif).
 
 
 ![WellBot preview 2](./img1.png)
