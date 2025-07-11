@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Medical Diagnosis Tool with 3D Human Model" />
+    <title>WellBot.AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <!-- Tiaxe Agent Container (Popup-style with Voice resume workaround) -->
+    <div id="VG_OVERLAY_CONTAINER" style="width: 500px; height: 500px;"></div>
+
+    <!-- ✅ Tiaxe Agent Embed Script -->
+    <script>
+      (function () {
+        window.VG_CONFIG = {
+          ID: "Irphk89NShTN3nOH9UOb",
+          region: "na",
+          render: "popup", // ✅ use popup instead of full-width
+          modalMode: false,
+          autostart: true, // ✅ Start automatically so widget appears
+          stylesheets: [
+            "https://vg-bunny-cdn.b-cdn.net/vg_live_build/styles.css",
+          ],
+        };
+
+        const VG_SCRIPT = document.createElement("script");
+        VG_SCRIPT.src = "https://vg-bunny-cdn.b-cdn.net/vg_live_build/vg_bundle.js";
+        VG_SCRIPT.defer = true;
+        document.body.appendChild(VG_SCRIPT);
+      })();
+    </script>
+
+    <!-- ✅ Voice Playback Trigger after First Interaction -->
+    <script>
+      document.addEventListener("click", () => {
+        if (
+          window.VG &&
+          window.VG.voice &&
+          typeof window.VG.voice.resume === "function"
+        ) {
+          window.VG.voice.resume(); // allow voice after user interacts
+        }
+      });
+    </script>
+  </body>
+</html>

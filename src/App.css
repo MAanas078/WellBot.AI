@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Kept your change */
+  background-color: #000;
+  color: white;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Changed from min-height */
+  background-color: #000;
+  overflow: hidden; /* Kept your change */
+}
+
+main {
+  flex-grow: 1;
+  overflow-y: auto; /* Changed to allow only main content scrolling */
+  overflow-x: hidden;
+}
+
+section, div {
+  background-color: inherit;
+  max-width: 100vw;
+  overflow-x: hidden; /* Reverted to x-only */
+}
+
+/* Keep your force-all rule but make it more specific */
+html * {
+  max-width: 100%;
+  overflow-x: hidden !important;
+}
+
+
+/* Add these styles to your existing App.css */
+/* Animation Styles */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(56, 182, 255, 0.5), 
+                0 0 10px rgba(56, 182, 255, 0.3),
+                0 0 15px rgba(56, 182, 255, 0.1);
+    border-color: rgba(56, 182, 255, 0.7);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(56, 182, 255, 0.8), 
+                0 0 20px rgba(56, 182, 255, 0.5),
+                0 0 30px rgba(56, 182, 255, 0.2);
+    border-color: rgba(56, 182, 255, 1);
+  }
+}
+
+.neon-card {
+  animation: glow 2s ease-in-out infinite alternate;
+  transition: all 0.3s ease;
+}
+
+.neon-card:hover {
+  transform: translateY(-5px);
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* Carousel Container */
+.stories-container {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 20%,
+    black 80%,
+    transparent 100%
+  );
+}
+
+.stories-track {
+  will-change: transform; /* Optimizes animation performance */
+}
+/* Neon Grid Background */
+.bg-grid-neon {
+  background-image: 
+    linear-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 145, 178, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Neon Card Animation */
+.neon-card {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.1);
+}
+
+.neon-card:hover {
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.3), 
+              0 0 25px rgba(34, 211, 238, 0.2),
+              0 0 35px rgba(34, 211, 238, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Scroll Container Mask */
+.stories-container {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
