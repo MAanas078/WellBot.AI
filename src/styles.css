@@ -1,0 +1,632 @@
+/* ===== Modern UI Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2B6CB0;
+  --secondary: #38B2AC;
+  --accent: #4299E1;
+  --text: #2D3748;
+  --text-light: #718096;
+  --bg: #F7FAFC;
+  --card-bg: #FFFFFF;
+  --success: #48BB78;
+  --error: #F56565;
+  --border-radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== Base Styles ===== */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== Layout ===== */
+.app-container {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: 80px 1fr;
+  height: 100vh;
+}
+
+/* ===== Header ===== */
+.header {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-sm);
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.user-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.user-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-menu {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  color: var(--text-light);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.nav-item:hover, .nav-item.active {
+  background: rgba(66, 153, 225, 0.1);
+  color: var(--primary);
+}
+
+.nav-item i {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Main Content ===== */
+.main-content {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 2rem;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  align-content: start;
+}
+
+/* ===== Cards ===== */
+.card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ===== Forms ===== */
+.form-group {
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--border-radius);
+  background: var(--card-bg);
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* ===== Range Slider ===== */
+.range-slider {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.range-slider input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #EDF2F7;
+  border-radius: 3px;
+  outline: none;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  color: white;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(66, 153, 225, 0.1);
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+.btn-icon:hover {
+  background: rgba(66, 153, 225, 0.2);
+}
+
+/* ===== Health Indicators ===== */
+.health-indicators {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background: rgba(72, 187, 120, 0.1);
+  color: var(--success);
+}
+
+.indicator-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.indicator-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 1024px) {
+  .app-container {
+    grid-template-columns: 200px 1fr;
+  }
+  
+  .health-indicators {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .header {
+    grid-column: 1;
+  }
+  
+  .main-content {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .health-indicators {
+    grid-template-columns: 1fr;
+  }
+  
+  .header {
+    padding: 0 1rem;
+  }
+}
+
+/* Typewriter effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  width: 0;
+  animation: typing 1.8s steps(30, end), blink 0.5s step-end infinite;
+}
+
+/* Add these to your existing styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Animation classes */
+.animate-bounce {
+  animation: bounce 1.5s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Gradient animation for background */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add this if you want the gradient animation */
+.animated-gradient {
+  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #3b82f6, #8b5cf6);
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+}
+
+ /* Add this to your styles.css or create a new CSS file */
+:root {
+  --dark-bg: #121212;
+  --dark-surface: #1e1e1e;
+  --dark-primary: #bb86fc;
+  --dark-secondary: #03dac6;
+  --dark-text: #e1e1e1;
+  --dark-text-secondary: #a0a0a0;
+  --dark-border: #333333;
+  --dark-error: #cf6679;
+}
+
+.dark-theme {
+  /* Main container */
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+
+  /* Canvas area */
+  .w-2\/5 {
+    border-color: var(--dark-border);
+    background-color: var(--dark-surface);
+    
+    .text-gray-700 {
+      color: var(--dark-text);
+    }
+  }
+
+  /* Form area */
+  .w-3\/5 {
+    border-color: var(--dark-border);
+    background-color: var(--dark-surface);
+    
+    .text-gray-700 {
+      color: var(--dark-text);
+    }
+  }
+
+  /* Input fields */
+  input, textarea, select {
+    background-color: var(--dark-surface);
+    border-color: var(--dark-border);
+    color: var(--dark-text);
+    
+    &:focus {
+      border-color: var(--dark-primary);
+      box-shadow: 0 0 0 2px rgba(187, 134, 252, 0.3);
+    }
+    
+    &::placeholder {
+      color: var(--dark-text-secondary);
+    }
+  }
+
+  /* Range input */
+  input[type="range"] {
+    &::-webkit-slider-thumb {
+      background: var(--dark-primary);
+    }
+    
+    &::-moz-range-thumb {
+      background: var(--dark-primary);
+    }
+  }
+
+  /* Select dropdown */
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23bb86fc'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  }
+
+  /* Buttons */
+  button {
+    background-color: var(--dark-primary);
+    color: #000;
+    
+    &:hover {
+      background-color: #a370d8;
+    }
+    
+    &:disabled {
+      background-color: #444;
+      color: var(--dark-text-secondary);
+    }
+  }
+
+  /* Progress bar */
+  .bg-gray-200 {
+    background-color: #333;
+    
+    .bg-blue-500 {
+      background-color: var(--dark-secondary);
+    }
+  }
+
+  /* Error messages */
+  .text-red-600 {
+    color: var(--dark-error);
+  }
+
+  /* Labels */
+  .text-gray-700.font-medium {
+    color: var(--dark-text-secondary);
+  }
+
+  /* Splash screen */
+  .bg-gradient-to-br {
+    background: linear-gradient(135deg, #0f0524 0%, #1a1a2e 100%);
+    
+    .text-white {
+      color: var(--dark-text);
+    }
+    
+    .text-blue-200 {
+      color: var(--dark-secondary);
+    }
+  }
+}
+
+/* Remove pink flags from select */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em;
+}
+
+/* For dark theme */
+.dark-theme select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23bb86fc'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+}
+
+.dark-theme button:not(:disabled) {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.dark-theme button:not(:disabled):hover,
+.dark-theme button:not(:disabled):active {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+/* For the highlighted condition text */
+.dark-theme .highlighted-condition {
+  color: #ffffff !important;
+  background-color: #bb86fc; /* Purple background for contrast */
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+/* For the main text in diagnosis section */
+.dark-theme .text-gray-600 {
+  color: #e0e0e0 !important; /* Brighter gray for better readability */
+}
+
+/* For the "How to Fix It" section text */
+.dark-theme .text-sm {
+  color: #e0e0e0 !important;
+}
+
+.dark-theme {
+  color-scheme: dark;
+}
+
+.dark-theme .text-gray-200 {
+  color: #e5e7eb;
+}
+
+.dark-theme .text-gray-400 {
+  color: #9ca3af;
+}
+
+.dark-theme .border-gray-600 {
+  border-color: #4b5563;
+}
+
+.dark-theme .border-gray-700 {
+  border-color: #374151;
+}
+
+.dark-theme .bg-gray-800 {
+  background-color: #1f2937;
+}
+
+.dark-theme .bg-gray-900 {
+  background-color: #111827;
+}
+
+.dark-theme button {
+  transition: all 0.2s ease;
+}
